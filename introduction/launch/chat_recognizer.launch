@@ -1,0 +1,9 @@
+<launch>
+<node name="recognizer" pkg="pocketsphinx" type="recognizer.py"
+output="screen">
+<param name="lm" value="$(find introduction)/config/chat.lm"/>
+<param name="dict" value="$(find introduction)/config/chat.dic"/>
+<param name="hmm" value="$(find pocketsphinx)/model/hmm/en/hub4wsj_sc_8k"/>
+</node>
+ 
+</launch>
