@@ -1,0 +1,61 @@
+Language model created by QuickLM on Fri Apr 10 11:06:13 EDT 2020
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 9 sentences and 11 words
+
+\data\
+ngram 1=11
+ngram 2=18
+ngram 3=9
+
+\1-grams:
+-0.7782 </s> -0.3010
+-0.7782 <s> -0.2218
+-1.7324 BYE -0.2218
+-1.7324 CYNTHIA -0.2218
+-1.7324 HOW-IS-YOUR-DAY -0.2218
+-1.7324 HOW-OLD-ARE-YOU -0.2218
+-1.7324 INTRODUCE-YOURSELF -0.2218
+-1.7324 JACK -0.2218
+-1.7324 TAKE-PHOTO -0.2218
+-1.7324 WHAT-IS-YOUR-NAME -0.2218
+-1.7324 WHERE-ARE-YOU-FROM -0.2218
+
+\2-grams:
+-1.2553 <s> BYE 0.0000
+-1.2553 <s> CYNTHIA 0.0000
+-1.2553 <s> HOW-IS-YOUR-DAY 0.0000
+-1.2553 <s> HOW-OLD-ARE-YOU 0.0000
+-1.2553 <s> INTRODUCE-YOURSELF 0.0000
+-1.2553 <s> JACK 0.0000
+-1.2553 <s> TAKE-PHOTO 0.0000
+-1.2553 <s> WHAT-IS-YOUR-NAME 0.0000
+-1.2553 <s> WHERE-ARE-YOU-FROM 0.0000
+-0.3010 BYE </s> -0.3010
+-0.3010 CYNTHIA </s> -0.3010
+-0.3010 HOW-IS-YOUR-DAY </s> -0.3010
+-0.3010 HOW-OLD-ARE-YOU </s> -0.3010
+-0.3010 INTRODUCE-YOURSELF </s> -0.3010
+-0.3010 JACK </s> -0.3010
+-0.3010 TAKE-PHOTO </s> -0.3010
+-0.3010 WHAT-IS-YOUR-NAME </s> -0.3010
+-0.3010 WHERE-ARE-YOU-FROM </s> -0.3010
+
+\3-grams:
+-0.3010 <s> BYE </s>
+-0.3010 <s> CYNTHIA </s>
+-0.3010 <s> HOW-IS-YOUR-DAY </s>
+-0.3010 <s> HOW-OLD-ARE-YOU </s>
+-0.3010 <s> INTRODUCE-YOURSELF </s>
+-0.3010 <s> JACK </s>
+-0.3010 <s> TAKE-PHOTO </s>
+-0.3010 <s> WHAT-IS-YOUR-NAME </s>
+-0.3010 <s> WHERE-ARE-YOU-FROM </s>
+
+\end\
