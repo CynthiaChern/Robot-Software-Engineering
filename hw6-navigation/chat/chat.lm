@@ -1,0 +1,73 @@
+Language model created by QuickLM on Fri Apr 17 06:18:47 EDT 2020
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 12 sentences and 14 words
+
+\data\
+ngram 1=14
+ngram 2=24
+ngram 3=12
+
+\1-grams:
+-0.7782 </s> -0.3010
+-0.7782 <s> -0.2218
+-1.8573 BYE -0.2218
+-1.8573 CYNTHIA -0.2218
+-1.8573 HOW-IS-YOUR-DAY -0.2218
+-1.8573 HOW-OLD-ARE-YOU -0.2218
+-1.8573 INTRODUCE-YOURSELF -0.2218
+-1.8573 JACK -0.2218
+-1.8573 KITCHEN -0.2218
+-1.8573 LIVINGROOM -0.2218
+-1.8573 SOFA -0.2218
+-1.8573 TAKE-PHOTO -0.2218
+-1.8573 WHAT-IS-YOUR-NAME -0.2218
+-1.8573 WHERE-ARE-YOU-FROM -0.2218
+
+\2-grams:
+-1.3802 <s> BYE 0.0000
+-1.3802 <s> CYNTHIA 0.0000
+-1.3802 <s> HOW-IS-YOUR-DAY 0.0000
+-1.3802 <s> HOW-OLD-ARE-YOU 0.0000
+-1.3802 <s> INTRODUCE-YOURSELF 0.0000
+-1.3802 <s> JACK 0.0000
+-1.3802 <s> KITCHEN 0.0000
+-1.3802 <s> LIVINGROOM 0.0000
+-1.3802 <s> SOFA 0.0000
+-1.3802 <s> TAKE-PHOTO 0.0000
+-1.3802 <s> WHAT-IS-YOUR-NAME 0.0000
+-1.3802 <s> WHERE-ARE-YOU-FROM 0.0000
+-0.3010 BYE </s> -0.3010
+-0.3010 CYNTHIA </s> -0.3010
+-0.3010 HOW-IS-YOUR-DAY </s> -0.3010
+-0.3010 HOW-OLD-ARE-YOU </s> -0.3010
+-0.3010 INTRODUCE-YOURSELF </s> -0.3010
+-0.3010 JACK </s> -0.3010
+-0.3010 KITCHEN </s> -0.3010
+-0.3010 LIVINGROOM </s> -0.3010
+-0.3010 SOFA </s> -0.3010
+-0.3010 TAKE-PHOTO </s> -0.3010
+-0.3010 WHAT-IS-YOUR-NAME </s> -0.3010
+-0.3010 WHERE-ARE-YOU-FROM </s> -0.3010
+
+\3-grams:
+-0.3010 <s> BYE </s>
+-0.3010 <s> CYNTHIA </s>
+-0.3010 <s> HOW-IS-YOUR-DAY </s>
+-0.3010 <s> HOW-OLD-ARE-YOU </s>
+-0.3010 <s> INTRODUCE-YOURSELF </s>
+-0.3010 <s> JACK </s>
+-0.3010 <s> KITCHEN </s>
+-0.3010 <s> LIVINGROOM </s>
+-0.3010 <s> SOFA </s>
+-0.3010 <s> TAKE-PHOTO </s>
+-0.3010 <s> WHAT-IS-YOUR-NAME </s>
+-0.3010 <s> WHERE-ARE-YOU-FROM </s>
+
+\end\
