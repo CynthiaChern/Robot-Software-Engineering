@@ -1,0 +1,48 @@
+<launch>
+
+  <param name="use_sim_time" value="false" />
+  
+<!--
+1. 加载地图
+2. 开启导航节点
+3. 开启AMCL辅助定位
+4. 开启导航测试 这里面需要改
+-->
+
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
+
+       <!-- 设置摄像头参数  确保摄像头参数正确-->
+    <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
+        <arg name="rgb_processing" value="false" />
+        <arg name="depth_registration" value="false" />
+        <arg name="depth_processing" value="false" />
+        <arg name="scan_topic" value="/scan" />
+        <arg name="3d_sensor" value="kinect"/>
+    </include>
+  <!-- 定义launch内部变量类似define -->
+  <arg name="map" default="hokuyo_gmapping.yaml" />
+
+  <!--创建地图 -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find kamerider_navigation)/maps/$(arg map)"/>
+
+  <!-- 开启导航节点 -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find kamerider_navigation)/config/nav_test_params.yaml" command="load" />
+  </node>
+
+
+  <!-- 开启AMCL辅助定位节点 -->
+  <include file="$(find kamerider_navigation)/launch/real/tb_amcl.launch" />
+  
+  <!-- 开启导航测试 -->
+  <node pkg="kamerider_navigation" type="nav_test.py" name="nav_test" output="screen">
+    <param name="rest_time" value="10" />
+    <param name="fake_test" value="false" />
+  </node>
+
+</launch>

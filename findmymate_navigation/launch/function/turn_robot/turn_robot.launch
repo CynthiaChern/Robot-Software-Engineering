@@ -1,0 +1,7 @@
+<launch>
+    <!--<include file="$(find turtlebot_bringup)/launch/minimal.launch" />-->
+
+    <node name="turn_robot_server" pkg="kamerider_navigation" type="turn_robot_server" output="screen"/>
+    <node name="turn_robot_client" pkg="kamerider_navigation" type="turn_robot_client" output="screen"/>
+
+</launch>

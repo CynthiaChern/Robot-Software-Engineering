@@ -1,0 +1,4 @@
+<launch>
+<!--说白了就是一个示波器 查看导航相关内容-->
+<node name = "rviz" pkg="rviz" type="rviz" required="true" args="-d $(find kamerider_navigation)/rviz/nav_test.rviz" />
+</launch>

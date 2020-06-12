@@ -1,0 +1,57 @@
+<!-- 建图launch文件 -->
+<launch>
+    <!--
+        唤起turtlebot
+    -->
+    <include file="$(find turtlebot_bringup)/launch/minimal.launch" /> 
+    
+    <!-- 
+        设置Gmapping包如下
+    -->
+    <!-- 设置摄像头参数  确保摄像头参数正确-->
+    <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
+        <arg name="rgb_processing" value="false" />
+        <arg name="depth_registration" value="false" />
+        <arg name="depth_processing" value="false" />
+        <arg name="scan_topic" value="/scan" />
+        <arg name="3d_sensor" value="kinect"/>
+    </include>
+    <!--使能rrt-->
+    <include file="$(find rrt_exploration)/launch/simple.launch"/> 
+    
+    <!-- 使能gmapping -->
+    <include file="$(find turtlebot_navigation)/launch/includes/gmapping/gmapping.launch.xml" />
+    
+    <!-- 使能move_base -->
+     <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+      <param name="footprint_padding" value="0.01" />
+      <param name="controller_frequency" value="5.0" />
+      <param name="controller_patience" value="3.0" />
+      <param name="oscillation_timeout" value="30.0" />
+      <param name="oscillation_distance" value="0.5" />
+      <param name="planner_patience" value="1" />
+      <param name="controller_patience" value="1" /> 
+      <param name="recovery_behavior_enabled" value="false" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find kamerider_navigation)/config/turtlebot/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find kamerider_navigation)/config/nav_test_params.yaml" command="load" />
+      <param name="global_costmap/global_frame" value="/map"/>
+      <param name="global_costmap/robot_base_frame" value="/base_link"/>
+      <param name="global_costmap/laser_scan_sensor/sensor_frame" value="/base_scan"/>
+      <param name="global_costmap/laser_scan_sensor/topic" value="/scan"/>    
+      <param name="local_costmap/global_frame" value="/map"/>
+      <param name="local_costmap/robot_base_frame" value="/base_link"/>
+      <param name="local_costmap/laser_scan_sensor/sensor_frame" value="/base_scan"/>
+      <param name="local_costmap/laser_scan_sensor/topic" value="/scan"/>
+      <param name="local_costmap/obstacle_layer/laser_scan_sensor/topic" value="/scan"/>
+      <remap from="cmd_vel" to="cmd_vel_mux/input/navi"/>
+    </node>
+
+    <!-- 开启rviz -->
+    <node name = "rviz" pkg="rviz" type="rviz" required="true" args="-d $(find kamerider_navigation)/rviz/rrt_exploration.rviz" />
+
+    
+</launch>
